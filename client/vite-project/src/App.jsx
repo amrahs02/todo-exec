@@ -6,7 +6,7 @@ import CreateTodo from "./components/CreateTodo";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import DeleteTodo from "./components/DeleteTodo";
+// import DeleteTodo from "./components/DeleteTodo";
 
 function App() {
   const PrivateRoute = ({ children }) => {

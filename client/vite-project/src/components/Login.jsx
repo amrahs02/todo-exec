@@ -24,7 +24,6 @@ const Login = () => {
       }
       if (response.ok) {
         alert("Login successful");
-        // <Navigate to="/todos" />
       } else {  
         alert(data.error || "Login failed");
       }
