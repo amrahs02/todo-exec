@@ -118,14 +118,12 @@ app.post("/login", (req, res) => {
     }
     );
 });
-//login without jwt
 
 
 //logout 
 app.post("/logout", (req, res) => {
 
-  // Invalidate the token on the server side if needed
-  //write code here 
+  //\
 
   
 
@@ -198,7 +196,6 @@ app.delete("/todos/:_id", (req, res) => {
 //update to do
 
 app.patch("/todos/:id", (req, res) => {
-  // const id = req.params.id;
 });
 
 app.listen(process.env.PORT, () => {
