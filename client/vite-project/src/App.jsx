@@ -22,7 +22,7 @@ function App() {
     <BrowserRouter>
       <div className="bg-blue-100">
         <Navbar />
-        <DeleteTodo/>
+        {/* <DeleteTodo/> */}
         <div className="flex justify-center items-center h-screen">
           <Routes>
             <Route path="/register" element={<Signup />} />
