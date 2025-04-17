@@ -15,15 +15,22 @@ const Signup = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),          
-
+        body: JSON.stringify(formData),
       });
+
       const data = await response.json();
+
       if (response.ok) {
+        localStorage.setItem("token", data.token);
+
+        const payload = JSON.parse(atob(data.token.split(".")[1]));
+        localStorage.setItem("role", payload.role);
+
         alert("Registration successful");
+
+        // Optional redirect after signup
+        window.location.href = "/dashboard";
       } else {
-        const token = data.token;
-        localStorage.setItem('token', token);
         alert(data.error || "Registration failed");
       }
     } catch (error) {
@@ -41,7 +48,7 @@ const Signup = () => {
 
   return (
     <div className="signup-container bg-blue-300 rounded-3xl p-4 ">
-        <h2 className="text-center" > Sign Up</h2>
+      <h2 className="text-center">Sign Up</h2>
       <form className="flex justify-center flex-col items-center" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -67,7 +74,9 @@ const Signup = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        <button className="bg-blue-500 py-2 px-4  rounded-3xl m-2" type="submit">Sign Up</button>
+        <button className="bg-blue-500 py-2 px-4 rounded-3xl m-2" type="submit">
+          Sign Up
+        </button>
       </form>
     </div>
   );

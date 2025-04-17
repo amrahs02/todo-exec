@@ -1,4 +1,5 @@
 import React from "react";
+import AdminDashboard from "./AdminDashboard";
 
 const Navbar = () => {
   const handleLogout = async () => {
@@ -38,7 +39,6 @@ const Navbar = () => {
                 Create Todo
               </a>
             </button>
-
             <button>
               <a
                 href="/login"
@@ -61,12 +61,19 @@ const Navbar = () => {
                 Profile name will be shown here
               </a>    
             </button> */}
-
             <button onClick={handleLogout}>
               <span className="text-white bg-red-500 rounded-3xl p-2   font-bold m-2 cursor-pointer">
                 Logout
               </span>
             </button>
+
+            {localStorage.getItem('isAdmin') === 'true' && (
+              <button>
+                <a href="/admin" className="text-white bg-red-500 rounded-3xl p-2 font-bold m-2">
+                  Admin Dashboard
+                </a>
+              </button>
+            )}
           </div>
         </div>
       </nav>

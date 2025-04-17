@@ -6,6 +6,7 @@ import CreateTodo from "./components/CreateTodo";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import AdminDashboard from "./components/AdminDashboard";
 // import DeleteTodo from "./components/DeleteTodo";
 
 function App() {
@@ -32,6 +33,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <CreateTodo />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin"
+              element={
+                <PrivateRoute>
+                  <AdminDashboard />
                 </PrivateRoute>
               }
             />
